@@ -7,6 +7,20 @@ This project is based on the generation by the Maven archetype
 This example shows how to implement tests with plain java delegates like you would do with expression based delegates like CDI-Beans.
 ![BPMN Process](src/main/resources/process.png)
 
+    @Test
+    @Deployment(resources = "process.bpmn")
+    public void testRunningProcess() throws Exception {
+        // registering a different service task implementation under the el name "fancyService" as used in the process definition
+        // This works right out of the box
+        Mocks.register("fancyService", new MockedFancyService());
+
+        // Registering a different service task implementation under its classname as used in the process definition
+        // BEWARE This is not working out of the box, but will do with our extension.
+        Mocks.register("de.akquinet.camunda.FancyService", new MockedFancyService());
+        ProcessInstance processInstance = runtimeService().startProcessInstanceByKey(PROCESS_DEFINITION_KEY);
+        ...
+    }
+
 ## How does it work?
 
 For further description please have a look at our blogposts:
