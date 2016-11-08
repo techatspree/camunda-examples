@@ -9,6 +9,12 @@ This example shows how to implement tests with plain java delegates like you wou
 
 ## How does it work?
 
+For further description please have a look at our blogposts:
+
+English: https://blog.akquinet.de/2016/11/04/camunda-bpm-test-your-processes-based-on-plain-old-java-delegates/
+
+German: https://blog-de.akquinet.de/2016/11/08/camunda-bpm-testen-von-prozessen-mit-java-delegates/
+
                                  
 ## How to use it?
 Just as you would test processes with CDI based Java Delegates you can do that now with plain old java delegates as well.
